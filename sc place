@@ -1,4 +1,4 @@
-for i = 1, 15 do
+
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
@@ -78,4 +78,4 @@ while true do
         print("Gagal menemukan posisi valid setelah " .. attempts .. " percobaan.")
     end
 end
-end
+
