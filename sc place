@@ -72,7 +72,7 @@ while true do
         game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
 
         -- Delay sebelum menyummon Freddy berikutnya
-        wait(6)
+        wait(10)
     else
         print("Gagal menemukan posisi valid setelah " .. attempts .. " percobaan.")
     end
