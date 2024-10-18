@@ -1,5 +1,6 @@
 --Local Player Jalan Ke tengah Line
-
+for i = 1, 5 do
+task.wait(3)
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -14,3 +15,4 @@ local function walkTo(destination)
 end
 
 walkTo(middlePosition)
+end
