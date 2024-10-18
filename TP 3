@@ -1,3 +1,12 @@
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
+local part = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
 character.HumanoidRootPart.CFrame = part.CFrame
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
+local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
+local middlePosition = (part1.Position + part2.Position) / 2
+
+-- Teleport the character to the middle position
+character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)
