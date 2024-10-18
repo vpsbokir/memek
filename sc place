@@ -3,7 +3,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
 --radius lingkaran sekitar player
-local radius = 11 
+local radius = 10
 local usedPositions = {} 
 
 local radiusIndicator = Instance.new("Part")
