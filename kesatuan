@@ -9,7 +9,5 @@ task.wait(1)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20place"))() 
 
-task.wait(30)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20upgrade"))() 
 
