@@ -1,3 +1,16 @@
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-character.HumanoidRootPart.CFrame = part.CFrame
+--Local Player Jalan Ke tengah Line
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
+local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
+local middlePosition = (part1.Position + part2.Position) / 2
+
+local function walkTo(destination)
+    humanoid:MoveTo(destination)
+    humanoid.MoveToFinished:Wait()
+end
+
+walkTo(middlePosition)
