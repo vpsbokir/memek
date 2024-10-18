@@ -12,3 +12,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/h
 task.wait(15)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20upgrade"))() 
+
+task.wait(100)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20upgrade"))() 
