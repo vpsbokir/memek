@@ -3,7 +3,7 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
 --radius lingkaran sekitar player
-local radius = 10 
+local radius = 9 
 local usedPositions = {} 
 
 local radiusIndicator = Instance.new("Part")
@@ -72,7 +72,7 @@ while true do
         game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
 
         -- Delay sebelum menyummon Freddy berikutnya
-        wait(10)
+        wait(9)
     else
         print("Gagal menemukan posisi valid setelah " .. attempts .. " percobaan.")
     end
