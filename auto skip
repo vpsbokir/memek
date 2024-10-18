@@ -1,0 +1,9 @@
+while true do
+task.wait(5)
+local args = {
+    [1] = "AutoSkip"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Misc.Settings:FireServer(unpack(args))
+
+end
