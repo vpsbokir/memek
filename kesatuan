@@ -1,6 +1,8 @@
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/frist%20script"))() 
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/auto%20skip"))() 
+
 task.wait(10)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/TP%203"))() 
