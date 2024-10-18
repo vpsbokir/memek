@@ -5,6 +5,8 @@ task.wait(15)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/TP%203"))() 
 
+task.wait(3)
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20place"))() 
 
 task.wait(15)
