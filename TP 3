@@ -1,5 +1,3 @@
-for i = 1, 100 do
-task.wait(20)
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local part = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
 character.HumanoidRootPart.CFrame = part.CFrame
@@ -12,4 +10,4 @@ local middlePosition = (part1.Position + part2.Position) / 2
 
 -- Teleport the character to the middle position
 character.HumanoidRootPart.CFrame = CFrame.new(middlePosition)
-end
+
