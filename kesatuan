@@ -3,11 +3,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/h
 
 task.wait(1)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20place"))() 
-
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/TP%203"))() 
 
 task.wait(1)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/TP%203"))() 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20place"))() 
+
 
