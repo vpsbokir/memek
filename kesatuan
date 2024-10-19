@@ -1,14 +1,13 @@
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/frist%20script"))() 
 
-
-task.wait(10)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/TP%203"))() 
-
 task.wait(1)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/sc%20place"))() 
 
 
+
+task.wait(1)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/TP%203"))() 
 
