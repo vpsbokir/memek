@@ -1,4 +1,4 @@
-
+task.wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vpsbokir/memek/refs/heads/main/frist%20script"))() 
 
 task.wait(10)
