@@ -1,10 +1,19 @@
-task.wait(4)
+-- Donat No Visual
+
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
---radius lingkaran sekitar player
-local radius = 10
+-- Batas jumlah Freddy yang bisa disummon
+local maxFreddyCount = 20  
+local currentFreddyCount = 0  -- Menghitung jumlah Freddy yang sudah disummon 
+
+-- Nama pet yang dapat dengan mudah diubah
+local nama_pet = "Freddy"  -- Anda dapat mengubah nama pet di sini
+
+-- Radius lingkaran sekitar player
+local radius = 10  -- Radius luar
+local innerRadius = 4  -- Radius dalam (lubang donat)
 local usedPositions = {} 
 
 local radiusIndicator = Instance.new("Part")
@@ -16,7 +25,6 @@ radiusIndicator.CanCollide = false
 radiusIndicator.BrickColor = BrickColor.new("Bright blue")
 radiusIndicator.Transparency = 0.7 
 radiusIndicator.Parent = workspace 
-
 
 local function updateRadiusIndicator()
     while true do
@@ -36,14 +44,13 @@ local function isPositionUsed(position)
     return false
 end
 
--- Loop untuk menyummon unit "Freddy" tanpa batas
-while true do
+-- Loop untuk menyummon unit "Freddy" dengan batasan dan area berbentuk donat
+while currentFreddyCount < maxFreddyCount do
 
     local args = {
         [1] = "Reset"
     }
     game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
-
 
     for j = 1, 68 do
         game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
@@ -58,19 +65,22 @@ while true do
         local randomZ = math.random(-radius, radius)
         newPosition = humanoidRootPart.Position + Vector3.new(randomX, 0, randomZ)
         attempts = attempts + 1
-    until not isPositionUsed(newPosition) or attempts >= maxAttempts
 
+        -- Memastikan posisi berada di antara radius luar dan radius dalam (bentuk donat)
+    until ((newPosition - humanoidRootPart.Position).magnitude > innerRadius and (newPosition - humanoidRootPart.Position).magnitude <= radius)
+        and not isPositionUsed(newPosition)
+        or attempts >= maxAttempts
 
     if not isPositionUsed(newPosition) then
-
         table.insert(usedPositions, newPosition)
 
         local argsSummon = {
-            [1] = "Freddy",
+            [1] = nama_pet,  -- Menggunakan nama pet dari variabel
             [2] = CFrame.new(newPosition) * CFrame.Angles(0, 0, 0)
         }
 
         game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(argsSummon))
+        currentFreddyCount = currentFreddyCount + 1  -- Menambah jumlah Freddy yang sudah disummon
 
         -- Delay sebelum menyummon Freddy berikutnya
         wait(10)
@@ -79,3 +89,4 @@ while true do
     end
 end
 
+print("Batas jumlah Freddy telah tercapai: " .. currentFreddyCount)
