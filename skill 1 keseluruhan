@@ -1,4 +1,4 @@
-task.wait(20)
+task.wait(16)
 
 for i = 1, 2 do
 
