@@ -191,6 +191,41 @@ game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpac
         [1] = "HellMode"
     }
     game:GetService("ReplicatedStorage").Remotes.Main.Modifiers:FireServer(unpack(args))
+
+local unitNames = {"Nightguard Afton", "Windup Bonnie"}  -- Daftar nama unit yang akan di-upgrade
+
+for i = 1, 12 do
+    for _, unitName in ipairs(unitNames) do
+        local allUpgradableUnits = {}
+        
+        -- Mencari unit berdasarkan nama
+        for _, unit in pairs(workspace.Towers:GetChildren()) do
+            if unit.Name == unitName then
+                local primaryPart = unit:FindFirstChildWhichIsA("BasePart")
+                if primaryPart then
+                    table.insert(allUpgradableUnits, unit)
+                end
+            end
+        end
+        
+        -- Jika ada unit yang bisa di-upgrade, lakukan upgrade
+        if #allUpgradableUnits > 0 then
+            for _, unit in ipairs(allUpgradableUnits) do
+                local upgradeArgs = {
+                    [1] = unit
+                }
+                local success, err = pcall(function()
+                    game:GetService("ReplicatedStorage").Remotes.Towers.Upgrade:FireServer(unpack(upgradeArgs))
+                end)
+                if not success then
+                    warn("Upgrade failed for unit: " .. unit.Name .. " with error: " .. err)
+                end
+            end
+        end
+    end
+    wait(1)  -- Tunggu 2 detik sebelum iterasi berikutnya
+end
+
 end
 
 
