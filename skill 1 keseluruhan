@@ -195,7 +195,7 @@ end
 
 
 
-for i = 1, 6 do
+for i = 1, 9 do
 wait(1)
 
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
