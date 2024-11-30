@@ -47,12 +47,7 @@ local args = {
     [2] = humanoidRootPartCFrame
 }
 
-game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
 
-  local args = {
-        [1] = "HellMode"
-    }
-    game:GetService("ReplicatedStorage").Remotes.Main.Modifiers:FireServer(unpack(args))
 
 
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
@@ -191,6 +186,13 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
+
+  local args = {
+        [1] = "HellMode"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Main.Modifiers:FireServer(unpack(args))
 end
 
 
