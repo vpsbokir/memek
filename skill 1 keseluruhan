@@ -194,7 +194,7 @@ game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpac
 
 local unitNames = {"Nightguard Afton", "Windup Bonnie"}  -- Daftar nama unit yang akan di-upgrade
 
-for i = 1, 12 do
+for i = 1, 16 do
     for _, unitName in ipairs(unitNames) do
         local allUpgradableUnits = {}
         
