@@ -26,7 +26,7 @@ local finalPositionWithOffset = finalMidpoint + offset
 -- Set CFrame karakter ke posisi final dengan offset ke kanan
 character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
 
-task.wait(1.5)
+task.wait(2)
 
 local args = {
     [1] = "Reset"
@@ -73,7 +73,7 @@ local finalPositionWithOffset = finalMidpoint + offset
 character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
 
 
-task.wait(1.5)
+task.wait(2)
 
 local args = {
     [1] = "Reset"
@@ -119,7 +119,7 @@ local finalPositionWithOffset = finalMidpoint + offset
 -- Set CFrame karakter ke posisi final dengan offset ke kanan
 character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
 
-task.wait(1.5)
+task.wait(2)
 
 local args = {
     [1] = "Reset"
