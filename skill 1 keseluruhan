@@ -339,7 +339,7 @@ local args = {
 game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
 end
 
-task.wait(20)
+
 for i = 1, 5 do
 wait(2)
 
