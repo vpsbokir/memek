@@ -7,7 +7,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").Remotes.Main.Vote:FireServer(unpack(args))
 
-task.wait(16)
+task.wait(20)
 
 for i = 1, 1 do
 
