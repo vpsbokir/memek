@@ -64,3 +64,5 @@ po.ChildAdded:connect(function(a)
         until false
     end
 end)
+task.wait(300)
+game.Players.LocalPlayer:Kick("kanjut melar")
