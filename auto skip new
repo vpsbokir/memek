@@ -1,3 +1,5 @@
+task.wait(4)
+setfpscap(5)
 task.wait(20)
 -- Konfigurasi
 local targetWavesToDisableSkip = { "Wave 1/15" } -- Waves yang ingin menonaktifkan auto skip
