@@ -35,14 +35,17 @@ if(gameid == 15846919378) then
 
     -- Auto Join Game
 -- Auto Join Game
+
+    -- Auto Join Game
+-- Auto Join Game
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 -- Koordinat target untuk Opsi 1 dan Opsi 2
 local targetPosition1 = Vector3.new(-393.84, 76.71, 403.98)
 local targetPosition2 = Vector3.new(-393.78, 76.71, 506.08)
-local targetPosition3 = Vector3.new(-7519.01, 3.98, -1434.30)
-local targetPosition4 = Vector3.new(-7460.65, 3.98, -1314.88)
+local targetPosition3 = Vector3.new(5610.00, 180.38, 48.67)
+local targetPosition4 = Vector3.new(5547.79, 180.34, -53.01)
 
 -- Lokasi teleportasi untuk Opsi 1
 local teleportPosition1_2 = CFrame.new(-394.61, 83.69, 421.16)
@@ -53,12 +56,12 @@ local teleportPosition2_2 = CFrame.new(-392.91, 82.06, 488.88)
 local teleportPosition2_1 = CFrame.new(-393.78, 76.52, 470.83)
 
 -- Lokasi teleportasi untuk Opsi 1
-local teleportPosition3_1 = CFrame.new(-7503.14, 4.34, -1431.84)
-local teleportPosition3_2 = CFrame.new(-7510.39, 11.10, -1433.14)
+local teleportPosition3_2 = CFrame.new(5600.50, 186.47, 48.36)
+local teleportPosition3_1 = CFrame.new(5594.02, 180.17, 46.18)
 
 -- Lokasi teleportasi untuk Opsi 2
-local teleportPosition4_1 = CFrame.new(-7476.63, 4.34, -1317.37)
-local teleportPosition4_2 = CFrame.new(-7469.43, 9.60, -1316.99)
+local teleportPosition4_2 = CFrame.new(5557.42, 185.79, -53.67)
+local teleportPosition4_1 = CFrame.new(5563.77, 180.17, -50.52)
 
 
 -- Cek apakah pemain berada di game dengan ID tertentu
@@ -133,6 +136,7 @@ if game.PlaceId == 15846919378 then
         wait(0.5)  -- Tunggu 0.5 detik sebelum iterasi berikutnya
     end
 end
+
 else
     print("place invalid")
 end
