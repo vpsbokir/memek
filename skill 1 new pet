@@ -1,7 +1,6 @@
-task.wait(1)
 local args = {
-    [1] = "6",
-    [2] = 1,
+    [1] = "800",
+    [2] = 5,
     [3] = 5
 }
 
@@ -9,27 +8,77 @@ game:GetService("ReplicatedStorage").Remotes.Main.Vote:FireServer(unpack(args))
 
 task.wait(24)
 
-for i = 1, 1 do
+for i = 1, 3 do
 
 wait(2)
 
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
 local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
+local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("3")
+local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("4")
 
 -- Set CFrame karakter ke posisi part1 dan part2
 character.HumanoidRootPart.CFrame = part1.CFrame
 character.HumanoidRootPart.CFrame = part2.CFrame
 
 -- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
+local midpoint = (part2.Position)
+local midpoint2 = (part3.Position + part4.Position) / 2
 local finalMidpoint = (midpoint + midpoint2) / 2
 
 -- Geser sedikit ke kanan dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(-2, 0, 0)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
+local offset = Vector3.new(8, 0, 3)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
+local finalPositionWithOffset = finalMidpoint + offset
+
+-- Set CFrame karakter ke posisi final dengan offset ke kanan
+character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
+
+task.wait(2)
+
+local args = {
+    [1] = "Reset"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
+
+
+for i = 1, 68 do
+
+game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
+end
+
+local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
+
+local args = {
+    [1] = "Tarnished Fredbear",
+    [2] = humanoidRootPartCFrame
+}
+game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
+
+  local args = {
+        [1] = "HellMode"
+    }
+    game:GetService("ReplicatedStorage").Remotes.Main.Modifiers:FireServer(unpack(args))
+
+
+local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
+local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
+local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("3")
+local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("4")
+
+-- Set CFrame karakter ke posisi part1 dan part2
+character.HumanoidRootPart.CFrame = part1.CFrame
+character.HumanoidRootPart.CFrame = part2.CFrame
+
+-- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
+local midpoint = (part2.Position)
+local midpoint2 = (part3.Position + part4.Position) / 2
+local finalMidpoint = (midpoint + midpoint2) / 2
+
+-- Geser sedikit ke kanan dengan menambah nilai pada sumbu X (horizontal)
+local offset = Vector3.new(2, 0, 3)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
 local finalPositionWithOffset = finalMidpoint + offset
 
 -- Set CFrame karakter ke posisi final dengan offset ke kanan
@@ -59,24 +108,23 @@ game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpac
 
 
 
-
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
 local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
+local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("3")
+local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("4")
 
 -- Set CFrame karakter ke posisi part1 dan part2
 character.HumanoidRootPart.CFrame = part1.CFrame
 character.HumanoidRootPart.CFrame = part2.CFrame
 
 -- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
+local midpoint = (part2.Position)
+local midpoint2 = (part3.Position + part4.Position) / 2
 local finalMidpoint = (midpoint + midpoint2) / 2
 
 -- Geser sedikit ke kanan dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(-2, 0, -5)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
+local offset = Vector3.new(-4, 0, 3)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
 local finalPositionWithOffset = finalMidpoint + offset
 
 -- Set CFrame karakter ke posisi final dengan offset ke kanan
@@ -103,74 +151,28 @@ local args = {
     [1] = "Tarnished Fredbear",
     [2] = humanoidRootPartCFrame
 }
-
 game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-
 
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
 local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
+local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("3")
+local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("4")
 
 -- Set CFrame karakter ke posisi part1 dan part2
 character.HumanoidRootPart.CFrame = part1.CFrame
 character.HumanoidRootPart.CFrame = part2.CFrame
 
 -- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
+local midpoint = (part2.Position)
+local midpoint2 = (part3.Position + part4.Position) / 2
 local finalMidpoint = (midpoint + midpoint2) / 2
 
 -- Geser sedikit ke kanan dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(-2, 0, -10)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
+local offset = Vector3.new(-10, 0, -2)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
 local finalPositionWithOffset = finalMidpoint + offset
 
 -- Set CFrame karakter ke posisi final dengan offset ke kanan
-character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
-
-task.wait(2)
-
-local args = {
-    [1] = "Reset"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
-
-
-for i = 1, 68 do
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
-end
-
-local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
-
-local args = {
-    [1] = "Tarnished Fredbear",
-    [2] = humanoidRootPartCFrame
-}
-
-game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
-local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-
--- Set CFrame karakter ke posisi part1 dan part2
-character.HumanoidRootPart.CFrame = part1.CFrame
-character.HumanoidRootPart.CFrame = part2.CFrame
-
--- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
-local finalMidpoint = (midpoint + midpoint2) / 2
-
--- Geser sedikit ke kiri dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(-14, 0, -5)  -- Menambahkan 2 stud ke arah kiri (sumbu X)
-local finalPositionWithOffset = finalMidpoint + offset
-
--- Set CFrame karakter ke posisi final dengan offset ke kiri
 character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
 
 task.wait(1.5)
@@ -196,11 +198,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
 
-  local args = {
-        [1] = "HellMode"
-    }
-    game:GetService("ReplicatedStorage").Remotes.Main.Modifiers:FireServer(unpack(args))
-
+ 
 local unitNames = {"Tarnished Fredbear", "Windup Bonnie"}  -- Daftar nama unit yang akan di-upgrade
 
 for i = 1, 16 do
@@ -237,31 +235,26 @@ end
 
 end
 
-
-
-for i = 1, 9 do
-wait(1)
-
 local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
 local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
+local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("3")
+local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("4")
 
 -- Set CFrame karakter ke posisi part1 dan part2
 character.HumanoidRootPart.CFrame = part1.CFrame
 character.HumanoidRootPart.CFrame = part2.CFrame
 
 -- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
+local midpoint = (part2.Position)
+local midpoint2 = (part3.Position + part4.Position) / 2
 local finalMidpoint = (midpoint + midpoint2) / 2
 
--- Geser sedikit ke kiri dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(7, 0, -5)  -- Menambahkan 2 stud ke arah kiri (sumbu X)
+-- Geser sedikit ke kanan dengan menambah nilai pada sumbu X (horizontal)
+local offset = Vector3.new(0, 0, -3)  -- Menambahkan 2 stud ke arah kanan (sumbu X)
 local finalPositionWithOffset = finalMidpoint + offset
 
--- Set CFrame karakter ke posisi final dengan offset ke kiri
+-- Set CFrame karakter ke posisi final dengan offset ke kanan
 character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
 
 task.wait(1.5)
@@ -286,7 +279,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-end
+
 
 local unitNames = {"ITS ME"}  -- Daftar nama unit yang akan di-upgrade
 
@@ -322,307 +315,3 @@ for i = 1, 16 do
     wait(1)  -- Tunggu 2 detik sebelum iterasi berikutnya
 end
 
-
-
-for i = 1, 4 do
-
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
-local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-
--- Set CFrame karakter ke posisi part1 dan part2
-character.HumanoidRootPart.CFrame = part1.CFrame
-character.HumanoidRootPart.CFrame = part2.CFrame
-
--- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
-local finalMidpoint = (midpoint + midpoint2) / 2
-
--- Geser sedikit ke kiri dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(5, 0, 5)  -- Menambahkan 2 stud ke arah kiri (sumbu X)
-local finalPositionWithOffset = finalMidpoint + offset
-
--- Set CFrame karakter ke posisi final dengan offset ke kiri
-character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
-
-task.wait(1.5)
-
-local args = {
-    [1] = "Reset"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
-
-
-for i = 1, 68 do
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
-end
-
-local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
-
-local args = {
-    [1] = "StoneTrap",
-    [2] = humanoidRootPartCFrame
-}
-
-game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
-local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-
--- Set CFrame karakter ke posisi part1 dan part2
-character.HumanoidRootPart.CFrame = part1.CFrame
-character.HumanoidRootPart.CFrame = part2.CFrame
-
--- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
-local finalMidpoint = (midpoint + midpoint2) / 2
-
--- Geser sedikit ke kiri dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(5, 0, -15)  -- Menambahkan 2 stud ke arah kiri (sumbu X)
-local finalPositionWithOffset = finalMidpoint + offset
-
--- Set CFrame karakter ke posisi final dengan offset ke kiri
-character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
-
-task.wait(1.5)
-
-local args = {
-    [1] = "Reset"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
-
-
-for i = 1, 68 do
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
-end
-
-local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
-
-local args = {
-    [1] = "StoneTrap",
-    [2] = humanoidRootPartCFrame
-}
-
-game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-end
-
-local unitNames = {"StoneTrap"}  -- Daftar nama unit yang akan di-upgrade
-
-for i = 1, 16 do
-    for _, unitName in ipairs(unitNames) do
-        local allUpgradableUnits = {}
-        
-        -- Mencari unit berdasarkan nama
-        for _, unit in pairs(workspace.Towers:GetChildren()) do
-            if unit.Name == unitName then
-                local primaryPart = unit:FindFirstChildWhichIsA("BasePart")
-                if primaryPart then
-                    table.insert(allUpgradableUnits, unit)
-                end
-            end
-        end
-        
-        -- Jika ada unit yang bisa di-upgrade, lakukan upgrade
-        if #allUpgradableUnits > 0 then
-            for _, unit in ipairs(allUpgradableUnits) do
-                local upgradeArgs = {
-                    [1] = unit
-                }
-                local success, err = pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.Towers.Upgrade:FireServer(unpack(upgradeArgs))
-                end)
-                if not success then
-                    warn("Upgrade failed for unit: " .. unit.Name .. " with error: " .. err)
-                end
-            end
-        end
-    end
-    wait(1)  -- Tunggu 2 detik sebelum iterasi berikutnya
-end
-
-
-for i = 1, 1 do
-wait(2)
-
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
-local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-
--- Set CFrame karakter ke posisi part1 dan part2
-character.HumanoidRootPart.CFrame = part1.CFrame
-character.HumanoidRootPart.CFrame = part2.CFrame
-
--- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
-local finalMidpoint = (midpoint + midpoint2) / 2
-
--- Geser sedikit ke kiri dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(15, 0, -13)  -- Menambahkan 2 stud ke arah kiri (sumbu X)
-local finalPositionWithOffset = finalMidpoint + offset
-
--- Set CFrame karakter ke posisi final dengan offset ke kiri
-character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
-
-task.wait(1.5)
-
-local args = {
-    [1] = "Reset"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
-
-
-for i = 1, 68 do
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
-end
-
-local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
-
-local args = {
-    [1] = "Scarecrow Foxy",
-    [2] = humanoidRootPartCFrame
-}
-
-game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
-local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-
--- Set CFrame karakter ke posisi part1 dan part2
-character.HumanoidRootPart.CFrame = part1.CFrame
-character.HumanoidRootPart.CFrame = part2.CFrame
-
--- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
-local finalMidpoint = (midpoint + midpoint2) / 2
-
--- Geser sedikit ke kiri dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(15, 0, -5)  -- Menambahkan 2 stud ke arah kiri (sumbu X)
-local finalPositionWithOffset = finalMidpoint + offset
-
--- Set CFrame karakter ke posisi final dengan offset ke kiri
-character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
-
-task.wait(1.5)
-
-local args = {
-    [1] = "Reset"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
-
-
-for i = 1, 68 do
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
-end
-
-local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
-
-local args = {
-    [1] = "Scarecrow Foxy",
-    [2] = humanoidRootPartCFrame
-}
-
-game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local part1 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("Start")
-local part2 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("1")
-local part3 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-local part4 = workspace.Map:WaitForChild("Paths"):WaitForChild("1"):WaitForChild("2")
-
--- Set CFrame karakter ke posisi part1 dan part2
-character.HumanoidRootPart.CFrame = part1.CFrame
-character.HumanoidRootPart.CFrame = part2.CFrame
-
--- Menghitung midpoint antara part1 dan part2, serta antara part2 dan part3
-local midpoint = (part1.Position + part2.Position) / 2
-local midpoint2 = (part2.Position + part4.Position) / 2
-local finalMidpoint = (midpoint + midpoint2) / 2
-
--- Geser sedikit ke kiri dengan menambah nilai pada sumbu X (horizontal)
-local offset = Vector3.new(15, 0, 2)  -- Menambahkan 2 stud ke arah kiri (sumbu X)
-local finalPositionWithOffset = finalMidpoint + offset
-
--- Set CFrame karakter ke posisi final dengan offset ke kiri
-character.HumanoidRootPart.CFrame = CFrame.new(finalPositionWithOffset)
-
-task.wait(1.5)
-
-local args = {
-    [1] = "Reset"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer(unpack(args))
-
-
-for i = 1, 68 do
-
-game:GetService("ReplicatedStorage").Remotes.Misc.StopSettings:FireServer()
-end
-
-local humanoidRootPartCFrame = character.HumanoidRootPart.CFrame
-
-local args = {
-    [1] = "Scarecrow Foxy",
-    [2] = humanoidRootPartCFrame
-}
-
-game:GetService("ReplicatedStorage").Remotes.Towers.SummonTower:FireServer(unpack(args))
-
-
-end
-
-local unitNames = {"Scarecrow Foxy"}  -- Daftar nama unit yang akan di-upgrade
-
-for i = 1, 16 do
-    for _, unitName in ipairs(unitNames) do
-        local allUpgradableUnits = {}
-        
-        -- Mencari unit berdasarkan nama
-        for _, unit in pairs(workspace.Towers:GetChildren()) do
-            if unit.Name == unitName then
-                local primaryPart = unit:FindFirstChildWhichIsA("BasePart")
-                if primaryPart then
-                    table.insert(allUpgradableUnits, unit)
-                end
-            end
-        end
-        
-        -- Jika ada unit yang bisa di-upgrade, lakukan upgrade
-        if #allUpgradableUnits > 0 then
-            for _, unit in ipairs(allUpgradableUnits) do
-                local upgradeArgs = {
-                    [1] = unit
-                }
-                local success, err = pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.Towers.Upgrade:FireServer(unpack(upgradeArgs))
-                end)
-                if not success then
-                    warn("Upgrade failed for unit: " .. unit.Name .. " with error: " .. err)
-                end
-            end
-        end
-    end
-    wait(1)  -- Tunggu 2 detik sebelum iterasi berikutnya
-end
