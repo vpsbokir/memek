@@ -5,3 +5,8 @@ local args = {
 for i = 1, 1 do
 game:GetService("ReplicatedStorage").Remotes.Misc.LimitedExclusivePack:FireServer(unpack(args))
 end
+
+for i = 1, 1 do
+game:GetService("ReplicatedStorage").Remotes.Misc.LimitedExclusivePack:FireServer()
+
+end
