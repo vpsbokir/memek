@@ -1,52 +1,10 @@
--- Define arguments for the first part of the script
+task.wait(20)
 local args = {
     [1] = 10,
     [2] = "Christmas"
 }
 
--- Define the unit names for the second part of the script
-local unitNames = {
-    "ShinyReindeer Withered Bonnie",
-    "Reindeer Withered Bonnie",
-    "ShinyNutcracker Chica",
-    "Present Boy",
-    "ShinyPresent Boy",
-    "Nutcracker Chica",
-}
-
--- Main loop
 while true do
-    -- First part: Invoking the Hatch event
     game:GetService("ReplicatedStorage").Remotes.Summons.Hatch:InvokeServer(unpack(args))
-    
-    -- Second part: Loop through the unit names to handle inventory items
-    local player = game.Players.LocalPlayer
-    for _, unitName in ipairs(unitNames) do
-        -- Attempt to access the unit in the player's inventory
-        local unit = player.PlayerGui.Inventory.InventoryFrame.HolderFrame.Units:FindFirstChild(unitName)
-        
-        -- Check if the unit exists and has the "TowerID" property
-        if unit and unit:FindFirstChild("TowerID") then
-            local memek = unit.TowerID.Value
-            print(unitName .. " TowerID: " .. memek)  -- Prints the TowerID for each unit
-
-            -- Dynamically set args[1] to the current unit's TowerID value (memek)
-            local deleteArgs = {
-                [1] = memek,  -- Set args[1] to the dynamic TowerID value (memek)
-                [2] = 22222   -- Set args[2] to a static or dynamic value (you can change this as needed)
-            }
-
-            -- Fire the server event with the updated args for deletion
-            game:GetService("ReplicatedStorage").Remotes.Towers.Delete:FireServer(unpack(deleteArgs))
-        else
-            -- Print a message if the unit doesn't exist or has no TowerID
-            print(unitName .. " not found or missing TowerID.")
-        end
-        
-        -- Wait for 1 second before continuing to the next unit
-        wait(1)
-    end
-    
-    -- Wait for 2 seconds before invoking the next Hatch (this is the delay from the first part)
-    wait(2)
+    wait(2)  -- Wait for 1 second before looping again (you can adjust the delay)
 end
