@@ -1,4 +1,13 @@
+
+local args = {
+    [1] = "6",
+    [2] = 1,
+    [3] = 3
+}
+
+game:GetService("ReplicatedStorage").Remotes.Main.Vote:FireServer(unpack(args))
 task.wait(20)
+
 for i = 1, 1 do
 
 wait(2)
