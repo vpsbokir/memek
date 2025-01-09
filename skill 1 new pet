@@ -1,12 +1,13 @@
 local gameid = game.PlaceId
-if gameid == 15860930970 then
-    game.Players.PlayerAdded:Connect(function(player)
-        -- Memeriksa apakah ada lebih dari satu pemain di server
-        if #game.Players:GetPlayers() > 1 then
-            -- Jika ada lebih dari satu pemain, kick pemain yang baru bergabung
-            player:Kick("kanjut melar")
-        end
-    end)
+if(gameid == 15860930970) then
+game.Players.PlayerAdded:Connect(function(player)
+    -- Memeriksa apakah ada pemain lain di server
+    if #game.Players:GetPlayers() > 1 then
+        -- Jika ada lebih dari 1 pemain di server, kick pemain yang baru
+        game.Players.LocalPlayer:Kick("kanjut melar")
+    end
+    
+end)
 end
 local args = {
     [1] = "6",
