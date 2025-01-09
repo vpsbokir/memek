@@ -44,6 +44,14 @@ task.spawn(function()
     end
 end)
 
+game.Players.PlayerAdded:Connect(function(player)
+    -- Memeriksa apakah ada pemain lain di server
+    if #game.Players:GetPlayers() > 1 then
+        -- Jika ada lebih dari 1 pemain di server, kick pemain yang baru
+        game.Players.LocalPlayer:Kick("kanjut melar")
+    end
+end)
+
 
 task.wait(10)
 -- made by CypherM#8368 (if you take anything from this script then make sure to add credits!) (you are not allowed to sell this / add it to your paid script unless if you ask me)
@@ -68,3 +76,4 @@ po.ChildAdded:connect(function(a)
 end)
 task.wait(300)
 game.Players.LocalPlayer:Kick("kanjut melar")
+
